@@ -429,10 +429,10 @@ footer{border-top:1px solid var(--bd);background:var(--bg2);padding:2.5rem clamp
       <div class="filters">
         <div class="cats">
           <button class="cat active" onclick="filterCat(this,'all')" id="c-all">الكل</button>
-          <button class="cat" onclick="filterCat(this,'gaming')" id="c-g">🎮 ألعاب</button>
-          <button class="cat" onclick="filterCat(this,'social')" id="c-s">💬 اجتماعي</button>
-          <button class="cat" onclick="filterCat(this,'education')" id="c-e">📚 تعليم</button>
-          <button class="cat" onclick="filterCat(this,'tech')" id="c-t">💻 تقنية</button>
+          <button class="cat" onclick="filterCat(this,'gaming')" id="c-g">🎭 رول بلاي</button>
+          <button class="cat" onclick="filterCat(this,'social')" id="c-s">🛍️ شوب</button>
+          <button class="cat" onclick="filterCat(this,'education')" id="c-e">🎉 فعاليات</button>
+          <button class="cat" onclick="filterCat(this,'tech')" id="c-t">🔥 حرق</button>
         </div>
         <div class="sbox"><span class="sico">🔍</span><input class="sinp" id="search" type="text" placeholder="ابحث عن سيرفر..." oninput="renderGrid()"></div>
       </div>
@@ -572,41 +572,53 @@ footer{border-top:1px solid var(--bd);background:var(--bg2);padding:2.5rem clamp
    DATA
 ══════════════════════════════════ */
 const SERVERS = [
-  {id:1,name:'نيون Gaming',nameEn:'Neon Gaming',
-   desc:'سيرفر ألعاب متكامل مع بوتات موسيقى وترتيب وتورنمنتات أسبوعية',
-   descEn:'Full gaming server with music bots, rankings and weekly tournaments',
-   tags:['ألعاب','تورنمنت'],tagsEn:['Gaming','Tournament'],
-   members:'2,340',cat:'gaming',icon:'⚔️',grad:'linear-gradient(135deg,#1a2535,#2d3d55)',featured:true,
+  {id:1,
+   name:'رول بلاي 🎭',nameEn:'Roleplay 🎭',
+   desc:'سيرفر رول بلاي متكامل يدعم CFW و VRP و ROBLOX — عوالم خيالية لا حدود لها مع قصص حية ومجتمع نشط',
+   descEn:'Full roleplay server supporting CFW, VRP & ROBLOX — endless worlds with live stories and an active community',
+   tags:['CFW','VRP','ROBLOX'],tagsEn:['CFW','VRP','ROBLOX'],
+   members:'2,340',cat:'gaming',icon:'🎭',
+   grad:'linear-gradient(135deg,#1a1035,#3d1a6e)',featured:true,
    pkgs:[{name:'بسيط',nameEn:'Basic',price:'1M كرديت'},{name:'أساسي',nameEn:'Standard',price:'2M كرديت'},{name:'احترافي',nameEn:'Pro',price:'4M كرديت'}]},
-  {id:2,name:'أوج اجتماعي',nameEn:'Peak Social',
-   desc:'مجتمع عربي نشط للنقاش وتبادل الأفكار وصناعة صداقات حقيقية',
-   descEn:'Active Arabic community for discussion and real friendships',
-   tags:['مجتمع','دردشة'],tagsEn:['Community','Chat'],
-   members:'2,340',cat:'social',icon:'🌙',grad:'linear-gradient(135deg,#1a2a42,#2d4060)',featured:false,
+  {id:2,
+   name:'شوب بأنواعه 🛍️',nameEn:'All-in-One Shop 🛍️',
+   desc:'متجر شامل يضم كل ما تحتاجه — حسابات، سكنات، آيتمز، خدمات رقمية وأكثر بأسعار لا تُقاوم',
+   descEn:'All-in-one shop with accounts, skins, items, digital services and more at unbeatable prices',
+   tags:['شوب','حسابات','آيتمز'],tagsEn:['Shop','Accounts','Items'],
+   members:'2,340',cat:'social',icon:'🛍️',
+   grad:'linear-gradient(135deg,#1a2a10,#2d5a1a)',featured:false,
    pkgs:[{name:'بسيط',nameEn:'Basic',price:'1M كرديت'},{name:'أساسي',nameEn:'Standard',price:'2M كرديت'},{name:'احترافي',nameEn:'Pro',price:'4M كرديت'}]},
-  {id:3,name:'كود أكاديمي',nameEn:'Code Academy',
-   desc:'سيرفر تعليمي للبرمجة مع كورسات مجانية ومنتورز متخصصين',
-   descEn:'Educational server with free coding courses and specialized mentors',
-   tags:['تعليم','برمجة'],tagsEn:['Education','Coding'],
-   members:'2,340',cat:'education',icon:'💻',grad:'linear-gradient(135deg,#1a3025,#2d4e3a)',featured:true,
+  {id:3,
+   name:'بيع أعضاء 👥',nameEn:'Member Sales 👥',
+   desc:'سيرفر متخصص في تنمية المجتمعات وبيع الأعضاء الحقيقيين — أسرع طريقة لبناء سيرفرك وتضخيم عدد أعضائك',
+   descEn:'Specialized server for growing communities and selling real members — the fastest way to build your server',
+   tags:['أعضاء','نمو','بووست'],tagsEn:['Members','Growth','Boost'],
+   members:'2,340',cat:'social',icon:'👥',
+   grad:'linear-gradient(135deg,#0d2a3d,#1a5a7a)',featured:true,
    pkgs:[{name:'بسيط',nameEn:'Basic',price:'1M كرديت'},{name:'أساسي',nameEn:'Standard',price:'2M كرديت'},{name:'احترافي',nameEn:'Pro',price:'4M كرديت'}]},
-  {id:4,name:'تيك هب',nameEn:'Tech Hub',
-   desc:'مجتمع التقنية والذكاء الاصطناعي وأحدث الأخبار التقنية',
-   descEn:'Technology and AI community with the latest tech news',
-   tags:['تقنية','AI'],tagsEn:['Tech','AI'],
-   members:'2,340',cat:'tech',icon:'🤖',grad:'linear-gradient(135deg,#1f1a32,#302848)',featured:false,
+  {id:4,
+   name:'فعاليات 🎉',nameEn:'Events 🎉',
+   desc:'سيرفر الفعاليات الأول — مسابقات، جيف أواي، تورنمنتات وأحداث حية على مدار الساعة مع جوائز قيّمة',
+   descEn:'The #1 events server — contests, giveaways, tournaments and live events around the clock with valuable prizes',
+   tags:['فعاليات','جيف أواي','تورنمنت'],tagsEn:['Events','Giveaway','Tournament'],
+   members:'2,340',cat:'education',icon:'🎉',
+   grad:'linear-gradient(135deg,#3d1a10,#7a2a1a)',featured:false,
    pkgs:[{name:'بسيط',nameEn:'Basic',price:'1M كرديت'},{name:'أساسي',nameEn:'Standard',price:'2M كرديت'},{name:'احترافي',nameEn:'Pro',price:'4M كرديت'}]},
-  {id:5,name:'كلاود Gaming',nameEn:'Cloud Gaming',
-   desc:'سيرفر لعشاق الكلاود غيمنج مع تجارب وتقييمات ومقارنات',
-   descEn:'Cloud gaming server with reviews and detailed comparisons',
-   tags:['ألعاب','كلاود'],tagsEn:['Gaming','Cloud'],
-   members:'2,340',cat:'gaming',icon:'☁️',grad:'linear-gradient(135deg,#162030,#243040)',featured:false,
+  {id:5,
+   name:'كوميونتي 🌐',nameEn:'Community 🌐',
+   desc:'مجتمع عربي راقٍ للتواصل والنقاش وتبادل الأفكار — بيئة محترمة ونشطة تجمع أصحاب الاهتمامات',
+   descEn:'A high-quality Arabic community for networking and discussions — a respectful active environment for like-minded people',
+   tags:['مجتمع','نقاش','تواصل'],tagsEn:['Community','Chat','Social'],
+   members:'2,340',cat:'social',icon:'🌐',
+   grad:'linear-gradient(135deg,#102a3d,#1a4a6e)',featured:false,
    pkgs:[{name:'بسيط',nameEn:'Basic',price:'1M كرديت'},{name:'أساسي',nameEn:'Standard',price:'2M كرديت'},{name:'احترافي',nameEn:'Pro',price:'4M كرديت'}]},
-  {id:6,name:'علوم وثقافة',nameEn:'Science & Culture',
-   desc:'سيرفر علمي يناقش الفيزياء والفلسفة والتاريخ والأدب',
-   descEn:'Scientific server discussing physics, philosophy and history',
-   tags:['علوم','ثقافة'],tagsEn:['Science','Culture'],
-   members:'2,340',cat:'education',icon:'🔭',grad:'linear-gradient(135deg,#251e10,#3a2e18)',featured:false,
+  {id:6,
+   name:'حرق 🔥',nameEn:'Mega Deals 🔥',
+   desc:'سيرفر الحرق الأشرس — أسعار مجنونة على كل شيء، عروض لحظية تختفي في ثوانٍ، لا تفوّت الفرصة',
+   descEn:'The wildest deals server — crazy prices on everything, flash offers that vanish in seconds, don\'t miss out',
+   tags:['حرق','عروض','خصومات'],tagsEn:['Deals','Offers','Discounts'],
+   members:'2,340',cat:'tech',icon:'🔥',
+   grad:'linear-gradient(135deg,#3d1500,#7a2a00)',featured:false,
    pkgs:[{name:'بسيط',nameEn:'Basic',price:'1M كرديت'},{name:'أساسي',nameEn:'Standard',price:'2M كرديت'},{name:'احترافي',nameEn:'Pro',price:'4M كرديت'}]},
 ];
 
@@ -662,7 +674,7 @@ const TR={
     hs:'أفضل سيرفرات ديسكورد العربية في مكان واحد — جودة عالية، أسعار مناسبة، خدمة متميزة',
     hb1:'تصفح السيرفرات',hb2:'كيف يعمل؟',hs1:'سيرفر نشط',hs2:'عضو موقوف',hs3:'تقييم المتجر',
     srvE:'السيرفرات المميزة',srvT:'اختر سيرفرك',
-    cAll:'الكل',cG:'🎮 ألعاب',cS:'💬 اجتماعي',cE:'📚 تعليم',cT:'💻 تقنية',
+    cAll:'الكل',cG:'🎭 رول بلاي',cS:'🛍️ شوب',cE:'🎉 فعاليات',cT:'🔥 حرق',
     sPh:'ابحث عن سيرفر...',buy:'شراء الآن',feat:'مميز',mem:'عضو',
     feE:'لماذا موناكو؟',feT:'مميزاتنا',hwE:'خطوات بسيطة',hwT:'كيف يعمل؟',
     f1t:'سيرفرات موثوقة',f1d:'كل سيرفر يمر بمراجعة دقيقة لضمان الجودة والأمان.',
@@ -695,7 +707,7 @@ const TR={
     hs:'The best Arabic Discord servers in one place — high quality, fair prices, 24/7 service',
     hb1:'Browse Servers',hb2:'How it works?',hs1:'Active servers',hs2:'Banned members',hs3:'Store rating',
     srvE:'FEATURED SERVERS',srvT:'Choose Your Server',
-    cAll:'All',cG:'🎮 Gaming',cS:'💬 Social',cE:'📚 Education',cT:'💻 Tech',
+    cAll:'All',cG:'🎭 Roleplay',cS:'🛍️ Shop',cE:'🎉 Events',cT:'🔥 Deals',
     sPh:'Search for a server...',buy:'Buy Now',feat:'Featured',mem:'members',
     feE:'WHY MONACO?',feT:'Our Features',hwE:'SIMPLE STEPS',hwT:'How It Works?',
     f1t:'Verified Servers',f1d:'Every server is carefully reviewed for quality and safety.',
@@ -872,26 +884,33 @@ function submitOrder(){
     db.ref('stats/pending').transaction(v=>(v||0)+1);
   }catch(e){console.warn(e)}
 
-  // Webhook
+  // Webhook — نحفظ message ID عشان نعدله لاحقاً
   const avUrl=user.avatar?`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=128`:'https://cdn.discordapp.com/embed/avatars/0.png';
-  fetch(WEBHOOK_URL,{
+  const embedBody={embeds:[{
+    title:'🛒 طلب جديد — موناكو',
+    color:[0x9aaabf,0xb8c8dc,0xc9a84c][pi]||0xb8c8dc,
+    thumbnail:{url:avUrl},
+    fields:[
+      {name:'👤 المستخدم',value:`${user.global_name||user.username}\n\`${user.id}\``,inline:true},
+      {name:'🎮 السيرفر',value:`**${s.name}**`,inline:true},
+      {name:'📦 الباقة',value:`**${pkg.name}** / ${pkg.nameEn}`,inline:true},
+      {name:'💰 السعر',value:`\`${pkg.price}\``,inline:true},
+      {name:'⏰ الوقت',value:orderTime,inline:true},
+      {name:'🔖 الحالة',value:'🟡 قيد التنفيذ',inline:true},
+      {name:'📝 ملاحظات العميل',value:notes||'لا توجد ملاحظات',inline:false},
+    ],
+    footer:{text:'متجر موناكو • MONACO STORE'},
+    timestamp:new Date().toISOString()
+  }]};
+
+  fetch(WEBHOOK_URL+'?wait=true',{
     method:'POST',headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({embeds:[{
-      title:'🛒 طلب جديد — موناكو',
-      color:[0x9aaabf,0xb8c8dc,0xc9a84c][pi]||0xb8c8dc,
-      thumbnail:{url:avUrl},
-      fields:[
-        {name:'👤 المستخدم',value:`${user.global_name||user.username}\n\`${user.id}\``,inline:true},
-        {name:'🎮 السيرفر',value:`**${s.name}**`,inline:true},
-        {name:'📦 الباقة',value:`**${pkg.name}** / ${pkg.nameEn}`,inline:true},
-        {name:'💰 السعر',value:`\`${pkg.price}\``,inline:true},
-        {name:'⏰ الوقت',value:orderTime,inline:true},
-        {name:'🔖 الحالة',value:'🟡 قيد التنفيذ',inline:true},
-        {name:'📝 ملاحظات العميل',value:notes||'لا توجد ملاحظات',inline:false},
-      ],
-      footer:{text:'متجر موناكو • MONACO STORE'},
-      timestamp:new Date().toISOString()
-    }]})
+    body:JSON.stringify(embedBody)
+  }).then(r=>r.json()).then(msg=>{
+    // خزّن message ID مع الطلب
+    if(msg?.id && firebaseKey){
+      db.ref('orders/'+firebaseKey+'/messageId').set(msg.id);
+    }
   }).catch(e=>console.warn(e));
 
   // Notification
@@ -980,11 +999,45 @@ function loadOrders(){
 }
 
 function markDone(key){
-  db.ref('orders/'+key).update({status:'done'});
-  db.ref('stats/pending').transaction(v=>Math.max(0,(v||1)-1));
-  db.ref('stats/done').transaction(v=>(v||0)+1);
-  setTimeout(()=>loadStats(),500);
-  showToast(lang==='ar'?'✅ تم تحديث الطلب':'✅ Order updated');
+  db.ref('orders/'+key).once('value', snap=>{
+    const ev = snap.val();
+    if(!ev) return;
+
+    // تحديث Firebase
+    db.ref('orders/'+key).update({status:'done'});
+    db.ref('stats/pending').transaction(v=>Math.max(0,(v||1)-1));
+    db.ref('stats/done').transaction(v=>(v||0)+1);
+
+    // تحديث الإمبيد في ديسكورد
+    const avUrl = ev.userId&&ev.avatar
+      ? `https://cdn.discordapp.com/avatars/${ev.userId}/${ev.avatar}.png?size=128`
+      : 'https://cdn.discordapp.com/embed/avatars/0.png';
+    const time = ev.timestamp ? new Date(ev.timestamp).toLocaleString('ar-SA') : '—';
+
+    fetch(WEBHOOK_URL,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({embeds:[{
+        title:'✅ تم إنجاز الطلب — موناكو',
+        color: 0x4ade80,
+        thumbnail:{url:avUrl},
+        fields:[
+          {name:'👤 المستخدم',  value:`${ev.globalName||ev.username||'Unknown'}\n\`${ev.userId||'—'}\``, inline:true},
+          {name:'🎮 السيرفر',   value:`**${ev.serverName||'—'}**`,  inline:true},
+          {name:'📦 الباقة',    value:`**${ev.package||'—'}**`,      inline:true},
+          {name:'💰 السعر',     value:`\`${ev.price||'—'}\``,        inline:true},
+          {name:'⏰ وقت الطلب', value:time,                          inline:true},
+          {name:'🔖 الحالة',    value:'🟢 مكتمل',                   inline:true},
+          {name:'📝 ملاحظات',  value:ev.notes||'—',                  inline:false},
+        ],
+        footer:{text:'متجر موناكو • MONACO STORE'},
+        timestamp:new Date().toISOString()
+      }]})
+    }).catch(e=>console.warn(e));
+
+    setTimeout(()=>loadStats(), 500);
+    showToast(lang==='ar'?'✅ تم تحديث الطلب وإرسال الإشعار':'✅ Order updated & notification sent');
+  });
 }
 
 db.ref('stats').on('value',snap=>{
